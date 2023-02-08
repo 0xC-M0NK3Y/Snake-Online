@@ -1,15 +1,20 @@
 #ifndef CONFIG_H
 # define CONFIG_H
 
-#define MAX_PACKET_LEN (1<<14)
+#define MAX_PACKET_LEN (1<<14) // MAXIMUM PACKET LENGTH, MUST BE MINIMUM SIZE OF PLAY PACKET (S -> C) (see Protocole)
 
-#define PLAYER_NEEDED 2
+#define PLAYER_NEEDED 2 // NUMBER OF PLAYER NEEDED FOR THE GAME TO START
 
-#define WIN_WIDTH 800
-#define WIN_HEIGHT 600
+#define WIN_WIDTH 800 // WIDTH OF THE WINDOW
+#define WIN_HEIGHT 600 // HEIGHT OF THE WINDOW
 
-#define SQUARE_SIZE 15
-#define BORDER_SIZE 2
+#define SQUARE_SIZE 15 // SIZE OF THE SQUARES
+#define BORDER_SIZE 2 // SIZE OF THE BORDURE
+
+#define MAX_SNAKE_LENGHT    40 // MAXIMUM LENGTH OF SNAKE THEN GAME IS ENDED 
+#define MAX_APPLE           3 // MAXIMUM OF SIMULTANEOUS APPLE
+
+/* Its better to not touch the other configuration defines */
 
 #define MAP_WIDTH   (WIN_WIDTH/SQUARE_SIZE)
 #define MAP_HEIGHT  (WIN_HEIGHT/SQUARE_SIZE)
@@ -32,8 +37,5 @@
 #define DOWN    1
 #define LEFT    2
 #define RIGHT   3
-
-#define MAX_SNAKE_LENGHT    40
-#define MAX_APPLE           3
 
 #endif /* config.h */
