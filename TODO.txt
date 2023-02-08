@@ -1,0 +1,9 @@
+implementer colision avec soi meme et autre joueur ?
+
+implementer une fin du jeu
+
+ajouter tableau de scores
+
+ajouter textures
+
+. . .
