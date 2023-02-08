@@ -14,6 +14,7 @@ Once there is the number of player needed the play flow is like this:
     S -> C PLAY packet
     C -> S PLAY packet
     S -> C PLAY packet
+    ...
 
 Structure of STRING:
     2 bytes len, uint16_t
