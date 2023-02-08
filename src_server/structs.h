@@ -24,7 +24,7 @@ typedef struct client {
     pos_t       player;
     int         dir;
     int         len;
-    pos_t       snake[MAX_SNAKE_LENGHT];
+    pos_t       snake[MAX_SNAKE_LENGHT+1];
 }   client_t;
 
 typedef struct map_env {

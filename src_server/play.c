@@ -93,6 +93,10 @@ int move_players(client_t *clients, size_t clients_len, map_env_t *mapenv) {
                 clients[i].snake[clients[i].len].y = clients[i].snake[clients[i].len-1].y;
                 clients[i].snake[clients[i].len].x = clients[i].snake[clients[i].len-1].x;
                 clients[i].len++;
+                if (clients[i].len >= MAX_SNAKE_LENGHT) {
+                    printf("%s WON !\n", clients[i].username);
+                    return -1;
+                }
                 mapenv->apples[j].y = -1;
                 mapenv->apples[j].x = -1;
                 spawn_apple(mapenv, j, clients, clients_len);

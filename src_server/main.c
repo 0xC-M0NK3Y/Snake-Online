@@ -89,7 +89,7 @@ int main(int argc, char **argv)
                             printf("Disconnection\n");
                             close(clients[i].sock);
                             free_buffers(clients, clients_len);
-                            exit(1);
+                            return EXIT_SUCCESS;
                     }
                     while (to_parse(clients[i].buffer.ptr, clients[i].buffer.len))
                     {
@@ -103,7 +103,10 @@ int main(int argc, char **argv)
             }
         }
         if (started) {
-            move_players(clients, clients_len, &mapenv);
+            if (move_players(clients, clients_len, &mapenv) < 0) {
+                free_buffers(clients, clients_len);
+                return EXIT_SUCCESS;
+            }
             send_play_packets(clients, clients_len);
         }
         if (!started && clients_len > PLAYER_NEEDED) {
