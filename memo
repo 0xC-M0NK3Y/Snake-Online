@@ -1,0 +1,50 @@
+Snake-Online Protocole
+
+Packet structure:
+    packet_len  -> 4 bytes uint32_t
+    packet_id   -> 2 bytes uint16_t
+    packet_data -> x bytes
+
+Connexion flow:
+    C -> S  LOGIN packet
+    S -> C  CONFIRM packet 
+
+Once there is the number of player needed the play flow is like this:
+    S -> C START packet
+    S -> C PLAY packet
+    C -> S PLAY packet
+    S -> C PLAY packet
+
+Structure of STRING:
+    2 bytes len, uint16_t
+    len bytes, len * char
+
+Structure of differents packet :
+
+    LOGIN packet, id 0x1
+    data:
+        STRING, username
+
+    CONFIRM packet, id 0x2
+    data:
+        STRING, username
+
+    START packet, id 0x3
+    data:
+        1 byte, 'S', uint8_t
+        4 bytes, pos_x, int
+        4 bytes, pos_y, int
+        4 bytes, dir, int
+        4 bytes, len, int (length of snake)
+
+    PLAY packet, id 0x4 (S -> C)
+    data:
+        x bytes, the complete map, x * char
+        4 bytes, pos_x, int
+        4 bytes, pos_y, int
+        4 bytes, dir, int
+        4 bytes, len, int (length of snake)
+
+    PLAY packet, id 0x4 (C -> S)
+    data:
+        4 bytes, dir, int (direction wanted)
