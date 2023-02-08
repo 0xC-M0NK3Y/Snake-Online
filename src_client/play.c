@@ -33,7 +33,6 @@ int handle_play(uint8_t *buffer, int *buffer_len, map_t *map) {
     i += sizeof(int);
     buffer_len[0] -= i;
     memmove(buffer, &buffer[i], buffer_len[0]);
-    printf("Received play packet %d %d\n", i, packet_len);
     return 1;
 }
 

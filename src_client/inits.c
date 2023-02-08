@@ -12,7 +12,6 @@
 #include "login.h"
 
 static int init_sdl(sdlenv_t *sdl) {
-    puts("INIT SDL");
     /* SDL init */
     if (SDL_Init(SDL_INIT_VIDEO) < 0)
         return -__LINE__;
@@ -46,12 +45,6 @@ static int init_conn(conn_manager_t *conn, char *ip, char *port) {
     conn->pollfd[0].events = POLLIN;
     conn->pollfd[0].revents = 0;
 
-/*
-    conn->pollfd[1].fd = 0;
-    conn->pollfd[1].events = POLLIN;
-    conn->pollfd[1].revents = 0;
-*/
-
     if (connect(conn->sock, (struct sockaddr *)&conn->addr, sizeof(sockaddr_in_t)) < 0)
         return perror("Connect"), -1;
     return 1;
@@ -61,7 +54,6 @@ int init_game(gameenv_t *env, char *ip, char *port, char *username) {
 
     int r;
 
-    puts("INIT GAME");
     if (strlen(username) >= 16) {
         printf("Username to long\n");
         return -1;
@@ -81,9 +73,6 @@ int init_game(gameenv_t *env, char *ip, char *port, char *username) {
     env->param.running = TRUE;
     env->param.fullscreen = TRUE;
     SDL_GetWindowSize(env->sdl.window, &env->param.width, &env->param.height);
-    printf("WINDOWS SIZE :\n");
-    printf("WIDTH = %d\n", env->param.width);
-    printf("HEIGHT = %d\n", env->param.height);
     env->param.state = LOGGING;
     return 1;
 }

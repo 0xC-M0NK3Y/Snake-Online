@@ -16,7 +16,6 @@ static void display_square(SDL_Renderer *renderer, int pos_x, int pos_y, uint8_t
 }
 
 void display_map(SDL_Renderer *renderer, const map_t *map) {
-    printf("display map\n");
     for (int y = 0; y < MAP_HEIGHT; y++) {
         for (int x = 0; x < MAP_WIDTH; x++) {
             switch (map->ptr[y][x]) {

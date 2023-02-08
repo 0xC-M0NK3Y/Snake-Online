@@ -6,4 +6,6 @@ ajouter tableau de scores
 
 ajouter textures
 
+implementer pour windows
+
 . . .

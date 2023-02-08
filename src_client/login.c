@@ -26,7 +26,6 @@ int handle_logging(uint8_t *buffer, int *buffer_len, char *verif) {
     i += string_len;
     buffer_len[0] -= packet_len;
     memmove(buffer, &buffer[i], buffer_len[0]);
-    printf("Received confirm packet\n");
     return 1;
 }
 
@@ -57,9 +56,9 @@ int handle_waiting(uint8_t *buffer, int *buffer_len, int *state, map_t *map) {
         printf("Failed parse good\n");
         return -1;
     }
-    printf("Received start packet\n");
     buffer_len[0] -= i;
     memmove(buffer, &buffer[i], buffer_len[0]);
+    printf("Game starting\n");
     return 1;
 }
 
@@ -78,6 +77,5 @@ int send_login_packet(socket_t sock, char *username) {
         printf("Failed send login packet\n");
         return -1;
     }
-    printf("Sent login packet to server\n");
     return 1;
 }

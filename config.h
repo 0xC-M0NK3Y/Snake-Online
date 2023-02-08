@@ -3,7 +3,7 @@
 
 #define MAX_PACKET_LEN (1<<14)
 
-#define PLAYER_NEEDED 3
+#define PLAYER_NEEDED 1
 
 #define WIN_WIDTH 800
 #define WIN_HEIGHT 600

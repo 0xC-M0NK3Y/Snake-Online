@@ -31,7 +31,7 @@ int main(int argc, char **argv)
         printf("CRITICAL ERROR\n");
         return EXIT_FAILURE;
     }
-    printf("IN MAIN %p\n", &env.map.pos_x);
+    printf("Connected to server\n");
     while (param->running)
     {
         if (poll(env.conn.pollfd, 1, -1) < 0)
@@ -57,7 +57,7 @@ int main(int argc, char **argv)
             switch (env.param.state) {
             case LOGGING: if (handle_logging(env.conn.buffer, &env.conn.buffer_len, env.param.username) < 0) return EXIT_FAILURE; env.param.state = WAITING; break;
             case WAITING: if (handle_waiting(env.conn.buffer, &env.conn.buffer_len, &env.param.state, &env.map) < 0) return EXIT_FAILURE; break;
-            case PLAYING: if (handle_play(env.conn.buffer, &env.conn.buffer_len, &env.map) < 0) {puts("bad play packet"); return EXIT_FAILURE;} break;
+            case PLAYING: if (handle_play(env.conn.buffer, &env.conn.buffer_len, &env.map) < 0) return EXIT_FAILURE; break;
             default: break;
             }
         }
