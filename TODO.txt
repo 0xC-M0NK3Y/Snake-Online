@@ -1,6 +1,6 @@
-implementer colision avec soi meme et autre joueur ?
+implementer colision avec soit meme et autre joueur ? (moins amusant)
 
-implementer une fin du jeu
+implementer une meilleur fin du jeu, ecran ou image, pour l'instant juste message dans terminal server.
 
 ajouter tableau de scores
 
