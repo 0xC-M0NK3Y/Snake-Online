@@ -14,7 +14,7 @@ TODOs and futures idea in TODO.txt
 Client connects to server, identify with username  
 Server confirm connexion  
 When the number of player needed is successfully connected the game starts  
-See more in `Protocole` file  
+See more in `Protocol.txt` file  
 Moving is done server-side  
 When a client disconnects it stops the game
 When a client hit the MAX_LENGTH_SNAKE the game ends and he won
