@@ -11,7 +11,7 @@
 #define SQUARE_SIZE 15 // SIZE OF THE SQUARES
 #define BORDER_SIZE 2 // SIZE OF THE BORDURE
 
-#define MAX_SNAKE_LENGHT    5 // MAXIMUM LENGTH OF SNAKE THEN GAME IS ENDED 
+#define MAX_SNAKE_LENGHT    20 // MAXIMUM LENGTH OF SNAKE THEN GAME IS ENDED 
 #define MAX_APPLE           100 // MAXIMUM OF SIMULTANEOUS APPLE
 
 /* Its better to not touch the other configuration defines */
