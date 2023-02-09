@@ -21,6 +21,7 @@ When a client hit the MAX_LENGTH_SNAKE the game ends and he won
 
 ## Compile
 You'll need SDL2 installed to compile.  
+  
 On linux:  
 
     make
