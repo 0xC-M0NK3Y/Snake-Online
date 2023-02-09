@@ -5,6 +5,7 @@
 #include <unistd.h>
 
 #include "structs.h"
+#include "utils.h"
 
 int send_play_packets(client_t *clients, size_t clients_len) {
     uint8_t packet[MAX_PACKET_LEN] = {0};
@@ -80,6 +81,7 @@ int move_players(client_t *clients, size_t clients_len, map_env_t *mapenv) {
                 clients[i].len++;
                 if (clients[i].len >= MAX_SNAKE_LENGHT) {
                     printf("%s WON !\n", clients[i].username);
+                    send_finish_packets(clients, clients_len, clients[i].username);
                     return -1;
                 }
                 mapenv->apples[j].y = rand() % MAP_HEIGHT;

@@ -104,6 +104,7 @@ int main(int argc, char **argv)
         }
         if (started) {
             if (move_players(clients, clients_len, &mapenv) < 0) {
+                // Game end here
                 free_buffers(clients, clients_len);
                 return EXIT_SUCCESS;
             }

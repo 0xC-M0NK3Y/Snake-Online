@@ -20,6 +20,7 @@ typedef struct sdlenv {
 // parametre de la fenetre
 typedef struct param {
     char username[16];
+    char winner[16];
     int state;
     int running;
     int fullscreen;
@@ -39,7 +40,8 @@ typedef struct conn_manager {
     socket_t        sock;
     sockaddr_in_t   addr;
     port_t          port;
-    pollfd_t        pollfd[2];
+    pollfd_t        pollfd;
+    int             ok;
     uint8_t         *buffer;
     int             buffer_len;
 }   conn_manager_t;

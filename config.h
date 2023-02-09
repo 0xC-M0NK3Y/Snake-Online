@@ -11,7 +11,7 @@
 #define SQUARE_SIZE 15 // SIZE OF THE SQUARES
 #define BORDER_SIZE 2 // SIZE OF THE BORDURE
 
-#define MAX_SNAKE_LENGHT    100 // MAXIMUM LENGTH OF SNAKE THEN GAME IS ENDED 
+#define MAX_SNAKE_LENGHT    5 // MAXIMUM LENGTH OF SNAKE THEN GAME IS ENDED 
 #define MAX_APPLE           100 // MAXIMUM OF SIMULTANEOUS APPLE
 
 /* Its better to not touch the other configuration defines */
@@ -19,14 +19,16 @@
 #define MAP_WIDTH   (WIN_WIDTH/SQUARE_SIZE)
 #define MAP_HEIGHT  (WIN_HEIGHT/SQUARE_SIZE)
 
-#define LOGGING 1
-#define WAITING 2
-#define PLAYING 3
+#define LOGGING     1
+#define WAITING     2
+#define PLAYING     3
+#define FINISHED    4
 
 #define LOGIN_PACKET_ID     0x1
 #define CONFIRM_PACKET_ID   0x2
 #define START_PACKET_ID     0x3
 #define PLAY_PACKET_ID      0x4
+#define FINISH_PACKET_ID    0x5
 
 #define BACKGROUND  '0'
 #define SNAKE       '1'

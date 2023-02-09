@@ -15,6 +15,7 @@ Once there is the number of player needed the play flow is like this:
     C -> S PLAY packet
     S -> C PLAY packet
     ...
+    S -> C FINISH packet
 
 Structure of STRING:
     2 bytes len, uint16_t
@@ -49,3 +50,7 @@ Structure of differents packet :
     PLAY packet, id 0x4 (C -> S)
     data:
         4 bytes, dir, int (direction wanted)
+
+    FINISH packet, id 0x5
+    data:
+        STRING, username of winner

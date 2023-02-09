@@ -1,8 +1,8 @@
 NAME_CLIENT = snake-online
 NAME_SERVER = snake-online-server
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -O3
-LDFLAGS = -lSDL2
+CFLAGS = -Wall -Wextra -Werror -O3 -g
+LDFLAGS = -lSDL2 -lSDL2_ttf
 SRC_CLIENT = $(addprefix src_client/, main.c  inits.c  utils.c  login.c  play.c  display.c)
 OBJ_CLIENT = ${SRC_CLIENT:.c=.o}
 SRC_SERVER = $(addprefix src_server/, main.c  clients.c  utils.c  login.c  start.c  play.c)

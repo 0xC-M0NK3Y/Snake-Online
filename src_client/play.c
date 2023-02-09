@@ -8,7 +8,23 @@
 #include "defines.h"
 #include "structs.h"
 
-int handle_play(uint8_t *buffer, int *buffer_len, map_t *map) {
+static int handle_finish_packet(uint8_t *buffer, int *buffer_len, int i, param_t *param, conn_manager_t *conn) {
+    uint16_t winner_len;
+
+    winner_len = *(uint16_t *)&buffer[i];
+    i += sizeof(uint16_t);
+    if (winner_len >= 16)
+        return -1;
+    memcpy(param->winner, &buffer[i], winner_len);
+    i += winner_len;
+    buffer_len[0] -= i;
+    memmove(buffer, &buffer[i], buffer_len[0]);
+    param->state = FINISHED;
+    conn->ok = 0;
+    return 1;
+}
+
+int handle_play(uint8_t *buffer, int *buffer_len, map_t *map, param_t *param, conn_manager_t *conn) {
     uint32_t packet_len;
     uint16_t packet_id;
     int      i = 0;
@@ -17,10 +33,12 @@ int handle_play(uint8_t *buffer, int *buffer_len, map_t *map) {
     i += sizeof(uint32_t);
     packet_id = *(uint16_t *)&buffer[i];
     i += sizeof(uint16_t);
-    if (packet_id != PLAY_PACKET_ID) {
+    if (packet_id != PLAY_PACKET_ID && packet_id != FINISH_PACKET_ID) {
         printf("packet length = %d and id = %d\n", packet_len, packet_id);
         return -1;
     }
+    if (packet_id == FINISH_PACKET_ID)
+        return handle_finish_packet(buffer, buffer_len, i, param, conn);
     memcpy(map->ptr, &buffer[i], MAP_HEIGHT * MAP_WIDTH);
     i += MAP_HEIGHT * MAP_WIDTH;
     map->pos_x = *(int *)&buffer[i];

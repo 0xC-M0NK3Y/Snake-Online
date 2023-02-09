@@ -41,9 +41,10 @@ static int init_conn(conn_manager_t *conn, char *ip, char *port) {
     conn->addr.sin_family = AF_INET;
     conn->addr.sin_port = conn->port;
 
-    conn->pollfd[0].fd = conn->sock;
-    conn->pollfd[0].events = POLLIN;
-    conn->pollfd[0].revents = 0;
+    conn->pollfd.fd = conn->sock;
+    conn->pollfd.events = POLLIN;
+    conn->pollfd.revents = 0;
+    conn->ok = 1;
 
     if (connect(conn->sock, (struct sockaddr *)&conn->addr, sizeof(sockaddr_in_t)) < 0)
         return perror("Connect"), -1;
