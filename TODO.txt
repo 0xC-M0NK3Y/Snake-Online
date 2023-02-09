@@ -8,4 +8,6 @@ ajouter textures
 
 implementer pour windows
 
+refaire spawn pomme
+
 . . .
