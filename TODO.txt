@@ -1,7 +1,9 @@
+ajouter ecran en attente de d'autre clients avec le nombre restant
+rajouter donc dans protocol WAITING packet
 
 ajouter tableau de scores
 
-ajouter textures
+ajouter textures ??
 
 implementer pour windows
 
