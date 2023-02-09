@@ -59,7 +59,7 @@ int main(int argc, char **argv)
     printf("Server listenning\n\n");
     while (1)
     {
-        if (poll(pollfd, clients_len, 100) < 0)
+        if (poll(pollfd, clients_len, 20) < 0)
             return perror("Poll"), EXIT_FAILURE;
         for (size_t i = 0; i < clients_len; i++) {
             if (pollfd[i].fd <= 0)

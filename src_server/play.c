@@ -35,21 +35,6 @@ int send_play_packets(client_t *clients, size_t clients_len) {
     return 1;
 }
 
-static int spawn_apple(map_env_t *mapenv, int i, client_t *clients, size_t client_len) {
-
-    mapenv->apples[i].y = rand() % MAP_HEIGHT;
-    mapenv->apples[i].x = rand() % MAP_WIDTH;
-    
-    for (size_t j = 1; j < client_len; j++) {
-        for (int k = 0; k < clients[i].len; k++) {
-            if (mapenv->apples[i].y == clients[j].snake[k].y && mapenv->apples[i].x == clients[j].snake[k].x) {
-                return spawn_apple(mapenv, i, clients, client_len);
-            }
-        }
-    }
-    return 1;
-}
-
 int move_players(client_t *clients, size_t clients_len, map_env_t *mapenv) {
 
     /* reset map */
@@ -97,9 +82,8 @@ int move_players(client_t *clients, size_t clients_len, map_env_t *mapenv) {
                     printf("%s WON !\n", clients[i].username);
                     return -1;
                 }
-                mapenv->apples[j].y = -1;
-                mapenv->apples[j].x = -1;
-                spawn_apple(mapenv, j, clients, clients_len);
+                mapenv->apples[j].y = rand() % MAP_HEIGHT;
+                mapenv->apples[j].x = rand() % MAP_WIDTH;
             }
         }
         memmove(&clients[i].snake[1], clients[i].snake, (clients[i].len-1) * sizeof(pos_t));

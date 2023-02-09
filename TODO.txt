@@ -8,6 +8,4 @@ ajouter textures
 
 implementer pour windows
 
-refaire spawn pomme et mieu avec vitesse plus rapide
-
 . . .
