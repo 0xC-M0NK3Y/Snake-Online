@@ -7,7 +7,7 @@ https://user-images.githubusercontent.com/102142537/217951089-9dd417e2-4cde-41f6
 
 It is using SDL2.  
 Not implemented for Windows yet.  
-You can configure the game with the `config.h` file.
+You can configure the game with the `config.h` file.  
 TODOs and futures idea in TODO.txt
 
 ## Protocol overview
